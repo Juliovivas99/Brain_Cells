@@ -1,12 +1,10 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
-require('dotenv').config({ path: path.join(__dirname, '../.env') });
+require('dotenv').config({ path: path.join(__dirname, '/Users/juliovivas/Vscode/Brain_Cells/Brain_Cells/.env') });
 
 // Use mock service in development
-const openAIService = isDev 
-  ? require('./services/ai/openai.mock')
-  : require('./services/ai/openai');
+const openAIService = require('./services/ai/openai');
 
 // Verify API key is loaded
 if (!isDev && !process.env.OPENAI_API_KEY) {
